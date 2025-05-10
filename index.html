@@ -232,8 +232,10 @@
   document.addEventListener('DOMContentLoaded', startAutoScroll);
 
   // PCマウスホイールで横スクロールを可能にする
-  scrollContainer.addEventListener('wheel', function(e) {
-    if (!e.shiftKey) {
+  // PCマウスホイールで横スクロール（iframe上でも動作）
+  window.addEventListener('wheel', function(e) {
+    const scrollContainer = document.getElementById('videoScroll');
+    if (!e.shiftKey && e.target.closest('#videoScroll')) {
       e.preventDefault();
       scrollContainer.scrollLeft += e.deltaY;
     }
