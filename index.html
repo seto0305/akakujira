@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>歌ってみたMIX ポートフォリオ</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: url('header-bg.jpg') center/cover no-repeat;
+      padding: 80px 20px;
+      text-align: center;
+      color: white;
+    }
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 10px;
+    }
+    .about, .contact {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .videos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .video-item {
+      background: white;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #777;
+      padding: 20px;
+    }
+    @media (max-width: 768px) {
+      .videos {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>歌ってみたMIX ポートフォリオ</h1>
+  <p>あなたの声を、最高の形に</p>
+</header>
+
+<section class="about">
+  <h2>About</h2>
+  <p>
+    個人で「歌ってみた」のMIXを承っている〇〇です。<br>
+    ピッチ補正・ノイズ処理・マスタリングなど、丁寧に仕上げています。
+  </p>
+</section>
+
+<section>
+  <h2>MIX実績</h2>
+  <div class="videos">
+    <div class="video-item">
+      <iframe src="https://drive.google.com/file/d/あなたの動画ID/preview" allowfullscreen></iframe>
+      <p><strong>タイトル：</strong>『〇〇（cover）』<br>
+         <strong>担当：</strong>MIX / マスタリング<br>
+         <strong>使用DAW：</strong>Studio One</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <h2>MIX依頼について</h2>
+  <p>
+    ・料金：1曲 〇〇円～<br>
+    ・納期：2週間前後（応相談）<br>
+    ・受付状況：受付中<br><br>
+    お問い合わせは：<a href="mailto:yourmail@example.com">yourmail@example.com</a>
+  </p>
+</section>
+
+<footer>
+  &copy; 2025 あなたの名前 / Twitter: @yourhandle
+</footer>
+
+</body>
+</html>
