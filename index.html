@@ -28,7 +28,7 @@
     }
     section {
       padding: 60px 20px;
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
     }
     h2 {
@@ -37,26 +37,25 @@
       border-bottom: 2px solid #ddd;
       padding-bottom: 10px;
     }
-    .about, .contact {
-      background-color: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .videos {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+    .video-scroll-container {
+      display: flex;
+      overflow-x: auto;
       gap: 20px;
+      padding: 10px;
+      scroll-snap-type: x mandatory;
     }
     .video-item {
+      min-width: 320px;
       background: white;
       border-radius: 10px;
       padding: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+      scroll-snap-align: start;
     }
-    iframe {
+    .video-item iframe {
       width: 100%;
-      aspect-ratio: 16 / 9;
+      height: 180px;
       border: none;
     }
     footer {
@@ -64,11 +63,6 @@
       font-size: 0.9em;
       color: #777;
       padding: 20px;
-    }
-    @media (max-width: 768px) {
-      .videos {
-        grid-template-columns: 1fr;
-      }
     }
   </style>
 </head>
@@ -83,7 +77,7 @@
   <h2>MIX実績</h2>
   <div class="video-scroll-container">
     <div class="video-item">
-      <iframe src="https://drive.google.com/file/d/1tXiQ_b7wSaihZX_2mST6nDIOkgkta9Jc/preview" width="640" height="360" allow="autoplay" allowfullscreen></iframe>
+      <iframe src="https://drive.google.com/file/d/1tXiQ_b7wSaihZX_2mST6nDIOkgkta9Jc/preview" allowfullscreen></iframe>
       <p><strong>タイトル：</strong>『カバー曲1』<br>
          <strong>担当：</strong>MIX / マスタリング<br>
          <strong>使用DAW：</strong>Studio One</p>
@@ -95,47 +89,12 @@
          <strong>使用DAW：</strong>Studio One</p>
     </div>
     <div class="video-item">
-      <iframe src="https://drive.google.com/file/d/【動画ID3】/preview" allowfullscreen></iframe>
+      <iframe src="https://drive.google.com/file/d/1-TCY7_iwl6RXKDOLL39qF3idNx1FgOH7/preview" allowfullscreen></iframe>
       <p><strong>タイトル：</strong>『カバー曲3』<br>
          <strong>担当：</strong>MIX / マスタリング<br>
          <strong>使用DAW：</strong>Studio One</p>
     </div>
   </div>
-</section>
-
-<style>
-.video-scroll-container {
-  display: flex;
-  overflow-x: auto;
-  gap: 20px;
-  padding: 10px;
-  scroll-snap-type: x mandatory;
-}
-.video-item {
-  min-width: 320px;
-  background: white;
-  border-radius: 10px;
-  padding: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  flex-shrink: 0;
-  scroll-snap-align: start;
-}
-.video-item iframe {
-  width: 100%;
-  height: 180px;
-  border: none;
-}
-</style>
-
-
-<section class="contact">
-  <h2>MIX依頼について</h2>
-  <p>
-    ・料金：1曲 〇〇円～<br>
-    ・納期：2週間前後（応相談）<br>
-    ・受付状況：受付中<br><br>
-    お問い合わせは：<a href="mailto:yourmail@example.com">yourmail@example.com</a>
-  </p>
 </section>
 
 <footer>
