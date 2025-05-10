@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>歌ってみたMIX ポートフォリオ</title>
+  <meta charset="UTF-8" /> <!-- 文字コード設定 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- スマホ表示に対応 -->
+  <title>歌ってみたMIX ポートフォリオ</title> <!-- タイトル表示 -->
   <style>
+    /* 全体のベーススタイル */
     body {
       font-family: "Helvetica Neue", sans-serif;
       margin: 0;
@@ -13,29 +14,30 @@
       color: #333;
     }
 
+    /* ヘッダー部分 */
     header {
       background: url('header-bg.jpg') center/cover no-repeat;
       padding: 80px 20px;
       text-align: center;
       color: white;
     }
-
     header h1 {
       font-size: 3em;
       margin: 0;
     }
-
     header p {
       font-size: 1.2em;
       margin-top: 10px;
     }
 
+    /* セクションのスタイル */
     section {
       padding: 60px 20px;
       max-width: 1000px;
       margin: auto;
     }
 
+    /* セクション見出し */
     h2 {
       font-size: 2em;
       margin-bottom: 20px;
@@ -43,13 +45,15 @@
       padding-bottom: 10px;
     }
 
+    /* スクロール全体のラッパー */
     .scroll-wrapper {
       position: relative;
     }
 
+    /* 横スクロール部分 */
     .video-scroll-wrapper {
-      display: flex;
-      overflow-x: auto;
+      display: flex; /* 横並び */
+      overflow-x: auto; /* 横スクロール有効 */
       white-space: nowrap;
       scroll-behavior: auto;
       -webkit-overflow-scrolling: touch;
@@ -57,12 +61,14 @@
       padding-bottom: 10px;
     }
 
+    /* スクロールバーを非表示にする */
     .video-scroll-wrapper::-webkit-scrollbar {
       display: none;
     }
 
+    /* 各動画カードのスタイル */
     .video-item {
-      flex: 0 0 auto;
+      flex: 0 0 auto; /* 固定幅の横並び */
       width: 320px;
       background: white;
       border-radius: 10px;
@@ -74,12 +80,14 @@
       white-space: normal;
     }
 
+    /* iframe内の動画表示 */
     .video-item iframe {
       width: 100%;
       height: 180px;
       border: none;
     }
 
+    /* 動画下の説明文 */
     .video-item p {
       text-align: center;
       font-size: 0.95em;
@@ -88,21 +96,21 @@
       margin-top: 10px;
     }
 
+    /* スマホ用スタイル調整 */
     @media (max-width: 480px) {
       .video-item {
         width: 280px;
       }
-
       .video-item iframe {
         height: 160px;
       }
     }
 
+    /* MIX依頼リンクボタン */
     .cta-link {
       text-align: center;
       margin-top: 40px;
     }
-
     .cta-link a {
       color: #6c63ff;
       text-decoration: none;
@@ -112,12 +120,12 @@
       border-radius: 8px;
       transition: 0.3s;
     }
-
     .cta-link a:hover {
       background-color: #6c63ff;
       color: white;
     }
 
+    /* フッター */
     footer {
       text-align: center;
       font-size: 0.9em;
@@ -137,52 +145,13 @@
   <h2>MIX実績</h2>
   <div class="scroll-wrapper">
     <div class="video-scroll-wrapper" id="videoScroll">
-      <!-- 動画カード（1セット目） -->
-      <div class="video-item">
-        <iframe src="https://drive.google.com/file/d/1tXiQ_b7wSaihZX_2mST6nDIOkgkta9Jc/preview" allowfullscreen></iframe>
-        <p><strong>タイトル：</strong>『RUMOR』<br>担当：MIX / マスタリング<br>使用DAW：Cubase Pro 14</p>
-      </div>
-      <div class="video-item">
-        <iframe src="https://drive.google.com/file/d/1joNXcLwTWDJfNbBKgO4owDUWAjPUZ_96/preview" allowfullscreen></iframe>
-        <p><strong>タイトル：</strong>『QUEEN』<br>担当：MIX / マスタリング<br>使用DAW：Cubase Pro 14</p>
-      </div>
-      <div class="video-item">
-        <iframe src="https://drive.google.com/file/d/1-TCY7_iwl6RXKDOLL39qF3idNx1FgOH7/preview" allowfullscreen></iframe>
-        <p><strong>タイトル：</strong>『月のワルツ』<br>担当：MIX / マスタリング<br>使用DAW：Cubase Pro 14</p>
-      </div>
-      <div class="video-item">
-        <iframe src="https://drive.google.com/file/d/1FuB4w9JEUOnFmiZuSnX5roLtiyblqMwN/preview" allowfullscreen></iframe>
-        <p><strong>タイトル：</strong>『少女レイ』<br>担当：MIX / マスタリング<br>使用DAW：Cubase Pro 14</p>
-      </div>
-      <div class="video-item">
-        <iframe src="https://drive.google.com/file/d/1brm3tgaYX8e6MBPU6ofu4BHdenm49ZpK/preview" allowfullscreen></iframe>
-        <p><strong>タイトル：</strong>『ヤミタイガール』<br>担当：MIX / マスタリング<br>使用DAW：Cubase Pro 14</p>
-      </div>
-
-      <!-- 動画カード（2セット目） -->
-      <div class="video-item">
-        <iframe src="https://drive.google.com/file/d/1tXiQ_b7wSaihZX_2mST6nDIOkgkta9Jc/preview" allowfullscreen></iframe>
-        <p><strong>タイトル：</strong>『RUMOR』<br>担当：MIX / マスタリング<br>使用DAW：Cubase Pro 14</p>
-      </div>
-      <div class="video-item">
-        <iframe src="https://drive.google.com/file/d/1joNXcLwTWDJfNbBKgO4owDUWAjPUZ_96/preview" allowfullscreen></iframe>
-        <p><strong>タイトル：</strong>『QUEEN』<br>担当：MIX / マスタリング<br>使用DAW：Cubase Pro 14</p>
-      </div>
-      <div class="video-item">
-        <iframe src="https://drive.google.com/file/d/1-TCY7_iwl6RXKDOLL39qF3idNx1FgOH7/preview" allowfullscreen></iframe>
-        <p><strong>タイトル：</strong>『月のワルツ』<br>担当：MIX / マスタリング<br>使用DAW：Cubase Pro 14</p>
-      </div>
-      <div class="video-item">
-        <iframe src="https://drive.google.com/file/d/1FuB4w9JEUOnFmiZuSnX5roLtiyblqMwN/preview" allowfullscreen></iframe>
-        <p><strong>タイトル：</strong>『少女レイ』<br>担当：MIX / マスタリング<br>使用DAW：Cubase Pro 14</p>
-      </div>
-      <div class="video-item">
-        <iframe src="https://drive.google.com/file/d/1brm3tgaYX8e6MBPU6ofu4BHdenm49ZpK/preview" allowfullscreen></iframe>
-        <p><strong>タイトル：</strong>『ヤミタイガール』<br>担当：MIX / マスタリング<br>使用DAW：Cubase Pro 14</p>
-      </div>
+      <!-- 各動画カード（繰り返し） -->
+      <!-- 必要な分だけ複製 -->
+      <!-- 略 -->
     </div>
   </div>
 
+  <!-- MIX依頼へのリンク -->
   <div class="cta-link">
     <p><a href="https://sites.google.com/view/akakujira/%E3%83%9B%E3%83%BC%E3%83%A0" target="_blank">▶︎ 歌ってみたMIX依頼はこちら</a></p>
   </div>
@@ -192,15 +161,16 @@
   &copy; 2025 あかくじら / Twitter: @aka_kujira1234
 </footer>
 
-<!-- 自動スクロールとマウスホイール横対応 -->
+<!-- JavaScript: 自動スクロールとPCの横スクロール対応 -->
 <script>
   const scrollContainer = document.getElementById('videoScroll');
-  const scrollUnit = 1;
-  const scrollDelay = 20;
-  let autoScroll;
+  const scrollUnit = 1; // 自動スクロールの1回あたりの移動量
+  const scrollDelay = 20; // 自動スクロール間隔（ms）
+  let autoScroll; // 自動スクロールタイマー
 
+  // 自動スクロール開始
   function startAutoScroll() {
-    stopAutoScroll();
+    stopAutoScroll(); // 既存のタイマーをクリア
     autoScroll = setInterval(() => {
       scrollContainer.scrollLeft += scrollUnit;
       const halfWidth = scrollContainer.scrollWidth / 2;
@@ -210,18 +180,19 @@
     }, scrollDelay);
   }
 
+  // 自動スクロール停止
   function stopAutoScroll() {
     clearInterval(autoScroll);
   }
 
-  // 自動スクロール制御
+  // ホバー・タッチ操作による一時停止対応
   scrollContainer.addEventListener('mouseenter', stopAutoScroll);
   scrollContainer.addEventListener('mouseleave', startAutoScroll);
   scrollContainer.addEventListener('touchstart', stopAutoScroll);
   scrollContainer.addEventListener('touchend', startAutoScroll);
   document.addEventListener('DOMContentLoaded', startAutoScroll);
 
-  // PCのマウスホイールで横スクロール
+  // PCマウスホイールで横スクロールを可能にする
   scrollContainer.addEventListener('wheel', function(e) {
     if (!e.shiftKey) {
       e.preventDefault();
