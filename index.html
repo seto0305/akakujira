@@ -47,41 +47,13 @@
       position: relative;
     }
 
-    .scroll-buttons {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      z-index: 10;
-      pointer-events: none;
-    }
-
-    .scroll-buttons button {
-      pointer-events: auto;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid #ccc;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      font-size: 20px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .scroll-buttons button:hover {
-      background: #6c63ff;
-      color: white;
-    }
-
     .video-scroll-wrapper {
       overflow-x: auto;
       white-space: nowrap;
-      scroll-behavior: auto;
+      scroll-behavior: auto; /* 戻すときはアニメーション無しで */
       -webkit-overflow-scrolling: touch;
-      padding-bottom: 10px;
       touch-action: pan-x;
+      padding-bottom: 10px;
     }
 
     .video-scroll-wrapper::-webkit-scrollbar {
@@ -149,53 +121,49 @@
 <section>
   <h2>MIX実績</h2>
   <div class="scroll-wrapper">
-    <div class="scroll-buttons">
-      <button onclick="scrollVideos(-1)">←</button>
-      <button onclick="scrollVideos(1)">→</button>
-    </div>
     <div class="video-scroll-wrapper" id="videoScroll">
-      <!-- 動画セット（1） -->
+      <!-- 動画セット（2回分複製） -->
       <div class="video-item">
         <iframe src="https://drive.google.com/file/d/1tXiQ_b7wSaihZX_2mST6nDIOkgkta9Jc/preview" allowfullscreen></iframe>
-        <p><strong>タイトル：</strong>『RUMOR』<br>担当：MIX / マスタリング<br>DAW：Cubase Pro 14</p>
+        <p><strong>RUMOR</strong><br>MIX / Cubase Pro 14</p>
       </div>
       <div class="video-item">
         <iframe src="https://drive.google.com/file/d/1joNXcLwTWDJfNbBKgO4owDUWAjPUZ_96/preview" allowfullscreen></iframe>
-        <p><strong>タイトル：</strong>『QUEEN』<br>担当：MIX / マスタリング<br>DAW：Cubase Pro 14</p>
+        <p><strong>QUEEN</strong><br>MIX / Cubase Pro 14</p>
       </div>
       <div class="video-item">
         <iframe src="https://drive.google.com/file/d/1-TCY7_iwl6RXKDOLL39qF3idNx1FgOH7/preview" allowfullscreen></iframe>
-        <p><strong>タイトル：</strong>『月のワルツ』<br>担当：MIX / マスタリング<br>DAW：Cubase Pro 14</p>
+        <p><strong>月のワルツ</strong><br>MIX / Cubase Pro 14</p>
       </div>
       <div class="video-item">
         <iframe src="https://drive.google.com/file/d/1FuB4w9JEUOnFmiZuSnX5roLtiyblqMwN/preview" allowfullscreen></iframe>
-        <p><strong>タイトル：</strong>『少女レイ』<br>担当：MIX / マスタリング<br>DAW：Cubase Pro 14</p>
+        <p><strong>少女レイ</strong><br>MIX / Cubase Pro 14</p>
       </div>
       <div class="video-item">
         <iframe src="https://drive.google.com/file/d/1brm3tgaYX8e6MBPU6ofu4BHdenm49ZpK/preview" allowfullscreen></iframe>
-        <p><strong>タイトル：</strong>『ヤミタイガール』<br>担当：MIX / マスタリング<br>DAW：Cubase Pro 14</p>
+        <p><strong>ヤミタイガール</strong><br>MIX / Cubase Pro 14</p>
       </div>
 
-      <!-- 動画セット（2） ダミー複製 -->
+      <!-- 2回目（複製） -->
       <div class="video-item">
         <iframe src="https://drive.google.com/file/d/1tXiQ_b7wSaihZX_2mST6nDIOkgkta9Jc/preview" allowfullscreen></iframe>
-        <p><strong>タイトル：</strong>『RUMOR』</p>
+        <p><strong>RUMOR</strong></p>
       </div>
       <div class="video-item">
         <iframe src="https://drive.google.com/file/d/1joNXcLwTWDJfNbBKgO4owDUWAjPUZ_96/preview" allowfullscreen></iframe>
-        <p><strong>タイトル：</strong>『QUEEN』</p>
+        <p><strong>QUEEN</strong></p>
       </div>
       <div class="video-item">
         <iframe src="https://drive.google.com/file/d/1-TCY7_iwl6RXKDOLL39qF3idNx1FgOH7/preview" allowfullscreen></iframe>
-        <p><strong>タイトル：</strong>『月のワルツ』</p>
+        <p><strong>月のワルツ</strong></p>
       </div>
       <div class="video-item">
         <iframe src="https://drive.google.com/file/d/1FuB4w9JEUOnFmiZuSnX5roLtiyblqMwN/preview" allowfullscreen></iframe>
-        <p><strong>タイトル：</strong>『少女レイ』</p>
+        <p><strong>少女レイ</strong></p>
       </div>
       <div class="video-item">
         <iframe src="https://drive.google.com/file/d/1brm3tgaYX8e6MBPU6ofu4BHdenm49ZpK/preview" allowfullscreen></iframe>
-        <p><strong>タイトル：</strong>『ヤミタイガール』</p>
+        <p><strong>ヤミタイガール</strong></p>
       </div>
     </div>
   </div>
@@ -210,37 +178,36 @@
 </footer>
 
 <script>
-  const scrollContainer = document.getElementById("videoScroll");
-  let autoScrollInterval;
+  const scrollContainer = document.getElementById('videoScroll');
+  const scrollUnit = 1;
+  const scrollDelay = 20; // ms
 
-  function scrollVideos(direction) {
-    scrollContainer.scrollBy({
-      left: direction * 340,
-      behavior: 'smooth'
-    });
-  }
+  let autoScroll;
 
   function startAutoScroll() {
-    autoScrollInterval = setInterval(() => {
-      scrollContainer.scrollLeft += 1;
+    stopAutoScroll(); // 念のため停止
+    autoScroll = setInterval(() => {
+      scrollContainer.scrollLeft += scrollUnit;
 
-      // ループポイント：最初のセット分（5動画×340px = 約1700px）を超えたら戻す
-      if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+      const halfWidth = scrollContainer.scrollWidth / 2;
+      if (scrollContainer.scrollLeft >= halfWidth) {
         scrollContainer.scrollLeft = 0;
       }
-    }, 30);
+    }, scrollDelay);
   }
 
   function stopAutoScroll() {
-    clearInterval(autoScrollInterval);
+    clearInterval(autoScroll);
   }
 
+  // マウス / タッチ操作時は自動スクロール停止・再開
   scrollContainer.addEventListener('mouseenter', stopAutoScroll);
   scrollContainer.addEventListener('mouseleave', startAutoScroll);
   scrollContainer.addEventListener('touchstart', stopAutoScroll);
   scrollContainer.addEventListener('touchend', startAutoScroll);
 
-  document.addEventListener("DOMContentLoaded", startAutoScroll);
+  // 初期化
+  document.addEventListener('DOMContentLoaded', startAutoScroll);
 </script>
 
 </body>
