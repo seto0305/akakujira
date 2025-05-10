@@ -227,14 +227,19 @@
   // ホバー・タッチ操作による一時停止対応
   scrollContainer.addEventListener('mouseenter', stopAutoScroll);
   scrollContainer.addEventListener('mouseleave', startAutoScroll);
-  scrollContainer.addEventListener('touchstart', stopAutoScroll);
-  scrollContainer.addEventListener('touchend', startAutoScroll);
+  scrollContainer.addEventListener('touchstart', () => {
+    stopAutoScroll();
+    scrollContainer.dataset.userScrolled = 'true';
+  });
+  scrollContainer.addEventListener('touchend', () => {
+    // 何もしない：自動再開は外側のタップ時のみ
+  });
   document.addEventListener('DOMContentLoaded', startAutoScroll);
 
   // スクロール外をタップしたときに再開する（スマホ向け）
   document.addEventListener('touchstart', function(e) {
     if (!e.target.closest('#videoScroll')) {
-      startAutoScroll();
+      if (!scrollContainer.dataset.userScrolled) startAutoScroll();
     }
   });
 
