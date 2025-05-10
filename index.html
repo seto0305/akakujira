@@ -231,6 +231,13 @@
   scrollContainer.addEventListener('touchend', startAutoScroll);
   document.addEventListener('DOMContentLoaded', startAutoScroll);
 
+  // スクロール外をタップしたときに再開する（スマホ向け）
+  document.addEventListener('touchstart', function(e) {
+    if (!e.target.closest('#videoScroll')) {
+      startAutoScroll();
+    }
+  });
+
   // PCマウスホイールで横スクロールを可能にする
   // PCマウスホイールで横スクロール（iframe上でも動作）
   window.addEventListener('wheel', function(e) {
