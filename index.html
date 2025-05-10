@@ -195,18 +195,24 @@
   &copy; 2025 あかくじら / Twitter: @aka_kujira1234
 </footer>
 
+<!-- スクロール制御 -->
 <script>
   const scrollContainer = document.getElementById("videoScroll");
   let autoScrollInterval;
 
   function scrollVideos(direction) {
-    scrollContainer.scrollLeft += direction * 340; // 1つ分の幅
+    scrollContainer.scrollLeft += direction * 340;
   }
 
   function startAutoScroll() {
     autoScrollInterval = setInterval(() => {
       scrollContainer.scrollLeft += 1;
-    }, 30); // ゆっくり動く
+
+      // 端に到達したら先頭に戻す
+      if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
+        scrollContainer.scrollLeft = 0;
+      }
+    }, 30);
   }
 
   function stopAutoScroll() {
@@ -216,7 +222,6 @@
   scrollContainer.addEventListener('mouseenter', stopAutoScroll);
   scrollContainer.addEventListener('mouseleave', startAutoScroll);
 
-  // 初期化
   document.addEventListener("DOMContentLoaded", startAutoScroll);
 </script>
 
