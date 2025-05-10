@@ -167,16 +167,17 @@
   &copy; 2025 あかくじら / Twitter: @aka_kujira1234
 </footer>
 
-<!-- PCホイール横スクロール対応 -->
+<!-- ホイール横スクロール対応スクリプト -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const container = document.querySelector('.video-scroll-container');
+
     container.addEventListener('wheel', function (e) {
-      if (e.deltaY !== 0) {
+      if (!e.shiftKey) {
         e.preventDefault();
         container.scrollLeft += e.deltaY;
       }
-    });
+    }, { passive: false });
   });
 </script>
 
